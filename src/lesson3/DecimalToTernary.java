@@ -1,3 +1,5 @@
+package lesson3;
+
 import java.util.Scanner;
 public class DecimalToTernary {
     public static void main(String[] args) {

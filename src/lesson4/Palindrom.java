@@ -1,4 +1,4 @@
-package sorting;
+package lesson4;
 
 public class Palindrom {
     public static void main(String[] args) {
