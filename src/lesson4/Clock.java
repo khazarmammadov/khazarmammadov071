@@ -7,7 +7,7 @@ public class Clock {
 
         double DegreeMin = min * 6;
         double HourWay = (double) min / 12;
-        double HourDegree = (HourWay+(double)((hour-12)*5)) * 6 ;
+        double HourDegree = (HourWay+(double)((hour%12)*5)) * 6 ;
         double Degree = DegreeMin - HourDegree;
 
         System.out.println(HourWay);
