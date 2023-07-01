@@ -1,0 +1,45 @@
+------------------------------1---------------------------------------------
+create table worker (
+    id int,
+    name char(100),
+    profession char(100),
+    salary numeric
+);
+
+insert into worker
+values (1,'Khazar','Developer',200000);
+insert into worker
+values (2,'Khayal','Sys Admin',20000);
+insert into worker
+values (3,'Ali','Translator',2000);
+insert into worker
+values (4,'Joe','Driver',1000);
+insert into worker
+values (5,'Wanda','Cooker',200);
+
+select * from worker;
+-------------------------------2-----------------------------------------
+
+select * from worker where salary < 1000;
+
+-------------------------------3-----------------------------------------
+
+update worker set salary = salary + salary*0.3 where salary < 1000;
+
+-------------------------------4-----------------------------------------
+
+alter table worker add enter_date date default current_date;
+
+-------------------------------5------------------------------------------
+
+select * from worker where profession = 'Developer';
+
+-------------------------------6-------------------------------------------
+
+update worker set salary = salary - 500 where id in (select id from worker where salary > 5000);
+
+
+
+
+
+
