@@ -1,0 +1,47 @@
+--------------------------------1---------------------------------------
+
+create table customer (
+    id int,
+    name char(123),
+    city char(123)
+);
+
+insert into customer values (1,'John Doe','New York');
+insert into customer values (2,'Jane Smith','San Francisco');
+insert into customer values (3,'David Johnson','Los Angeles');
+insert into customer values (4,'Sarah Williams','Chicago');
+
+create table orders (
+    id int,
+    customer_id int,
+    amount numeric(10 , 2),
+    order_date date
+);
+
+INSERT INTO orders (id, customer_id, amount, order_date)
+VALUES
+    (1, 1, 100.50, '2023-06-15'),
+    (2, 2, 75.20, '2023-06-16'),
+    (3, 2, 50.00, '2023-06-18'),
+    (4, 3, 200.80, '2023-06-20'),
+    (5, 2, 120.75, '2023-06-21'),
+    (6, 4, 90.30, '2023-06-22'),
+    (7, 3, 150.00, '2023-06-23'),
+    (8, 1, 80.50, '2023-06-25');
+
+select * from customer;
+select * from orders;
+
+----------------------------------------2--------------------------------------------
+
+SELECT cu.name, ord.ttl
+FROM (SELECT customer_id, SUM(amount) AS ttl FROM orders GROUP BY customer_id) ord
+JOIN customer cu ON cu.id = ord.customer_id;
+
+----------------------------------------3--------------------------------------------
+
+select cu.name,ord.cnt
+from (select customer_id,count(customer_id) as cnt from orders group by customer_id) ord
+join customer cu on cu.id = ord.customer_id;
+
+-------------------------------------------------------------------------------------
