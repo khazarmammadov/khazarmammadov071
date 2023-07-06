@@ -1,0 +1,28 @@
+----------------------------------------------1----------------------------------
+create view wwn as
+SELECT cu.name, ord.ttl
+FROM (SELECT customer_id, SUM(amount) AS ttl FROM orders GROUP BY customer_id) ord
+         JOIN customer cu ON cu.id = ord.customer_id;
+-------------------------------------------------2-------------------------------------
+CREATE FUNCTION add(a integer, b integer) RETURNS integer
+    LANGUAGE plpgsql
+as $$
+    BEGIN
+        RETURN a + b;
+    END;
+$$;
+------------------------------------------------3---------------------------------------
+CREATE OR REPLACE PROCEDURE ADD_CUSTOMER(
+    IN id INT,
+    in name varchar(47),
+    in surname varchar(45)
+
+    )
+LANGUAGE plpgsql
+as $$
+    BEGIN
+        INSERT INTO customer(ID, NAME, CITY) VALUES (5,'HI','FI');
+    END;
+$$;
+
+
